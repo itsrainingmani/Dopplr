@@ -28,15 +28,11 @@ print("* done recording")
 
 stream.stop_stream()
 stream.close()
-# p.terminate()
-
-stream = p.open(format =
-                p.get_format_from_width(1),
-                channels = 1,
-                rate = RATE,
-                output = True)
-for i in xrange(len(frames)):
-    stream.write(frames[i])
-stream.stop_stream()
-stream.close()
 p.terminate()
+
+wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
+wf.setnchannels(CHANNELS)
+wf.setsampwidth(p.get_sample_size(FORMAT))
+wf.setframerate(RATE)
+wf.writeframes(b''.join(frames))
+wf.close()
