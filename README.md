@@ -1,2 +1,3 @@
-# HackMITDoppler
-Sound based gesture recognition application
+# Dopplr
+
+Sound based gesture recognition
